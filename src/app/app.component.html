@@ -1,0 +1,38 @@
+<div class="header">
+  <a href="#logo" class="logo"> <img style="height: 25px;" src="../assets/Twitter-logo.png">Twitter</a>
+  <div class="header-right">
+  </div>
+</div>
+
+<mat-form-field class="example-chip-list" appearance="fill">
+  <mat-label>Hash Tags</mat-label>
+  <mat-chip-list #chipList aria-label="Fruit selection">
+    <mat-chip *ngFor="let hashTag of hashTags" (removed)="remove(hashTag)">
+      {{hashTag.name}}
+      <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+    </mat-chip>
+    <input placeholder="New hashTag..."
+           [matChipInputFor]="chipList"
+           [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+           [matChipInputAddOnBlur]="addOnBlur"
+           (matChipInputTokenEnd)="add($event)">
+  </mat-chip-list>
+</mat-form-field>
+
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <h3>{{avgNumberOfTweet}}</h3>
+      <p>Average number of tweets (/min)</p>
+      
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <h3>USA</h3>
+      <p>Country code of origin</p>
+    </div>
+  </div>
+   
+</div>
